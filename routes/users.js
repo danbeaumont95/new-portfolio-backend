@@ -11,5 +11,6 @@ router.options('/login', cors());
 
 router.post('/login', userController.login);
 router.post('/register', userController.register);
+router.get('/allUsersOnML', userController.getAllUsersOnMailingList);
 
 module.exports = router;

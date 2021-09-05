@@ -150,4 +150,16 @@ exports.register = async (req, res) => {
     } catch (error) {
         res.send({ error: `${error.message}` })
     }
-}
+};
+
+
+exports.getAllUsersOnMailingList = async (req, res) => {
+    try {
+      const users = await User.find({onMailingList: true}, ['email', 'username', 'data', 'onMailingList']);
+      if (!users) return res.status(401).json({ msg: 'No users found' });
+      return res.status(200).json(users)
+    } catch (error) {
+      console.log(error, 'error');
+      res.send(error);
+    }
+  }

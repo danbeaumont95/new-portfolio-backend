@@ -9,7 +9,6 @@ exports.postEmailToDan = async (req, res) => {
           to: 'danielbeaumont95@hotmail.co.uk', // Change to your recipient
           from: 'danibeamo@hotmail.com', // Change to your verified sender
           subject: subject,
-        //   text: text,
           html: `${text}<br></br><strong>Sender: ${senderEmail}</strong>`,
         }
         sgMail
@@ -40,8 +39,6 @@ exports.postEmailToAllOnMailingList = async (req, res) => {
           to: users, // Change to your recipient
           from: 'danibeamo@hotmail.com', // Change to your verified sender
           subject: subject,
-        //   text: text,
-          // html: `${text}<br></br><strong>Sender: ${senderEmail}</strong>`,
           html: text,
         }
         console.log(msg.to, 'msg to')
@@ -59,4 +56,4 @@ exports.postEmailToAllOnMailingList = async (req, res) => {
     console.log(error, 'error');
     res.send(error);
   }
-}
+};
